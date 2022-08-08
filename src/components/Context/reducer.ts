@@ -5,11 +5,11 @@ export const reducer = (state: InitialStateProps, action: ActionProps) => {
     case 'montoTotal':
       return { ...state, montoTotal: action.payload };
     case 'plazo':
-      return { ...state, plazo: !action.payload ? 3 : action.payload};
+      return { ...state, plazo: action.payload};
     case 'setCuotaFija':
       return {
         ...state,
-        cuotaFija: action.payload,
+        cuotaFija: action.payload === Infinity ? 0 : action.payload,
       };
     case 'setInvalid':
       return {

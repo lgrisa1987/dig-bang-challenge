@@ -22,8 +22,9 @@
 }
 
 html,
-body {
-  height: 100%;
+body,
+#root {
+  min-height: 100%;
 }
 
 html {
@@ -32,15 +33,17 @@ html {
 
 body {
   font-size: 1.6rem;
-  background: -webkit-gradient(linear, left top, left bottom, from($venice-blue), to($regal-blue)) no-repeat
-    center / cover;
-  background: linear-gradient(to bottom, $venice-blue, $regal-blue) no-repeat
-    center / cover;
 }
 
 #root {
   @include dflex(center, center);
-  min-height: 100vh;
   -webkit-perspective: 100rem;
   perspective: 100rem;
+  position: absolute;
+  width: 100%;
+  padding: 2rem 0;
+  background: -webkit-gradient(linear, left top, left bottom, from($venice-blue), to($regal-blue)) no-repeat
+    center / cover;
+  background: linear-gradient(to bottom, $venice-blue, $regal-blue) no-repeat
+    center / cover;
 }
