@@ -1,0 +1,46 @@
+@use '../../styles/utilities.scss' as *;
+.btn {
+  cursor: pointer;
+  text-align: center;
+  padding: 1rem;
+  outline: none;
+  border: none;
+  -ms-flex-item-align: stretch;
+  align-self: stretch;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  -webkit-box-flex: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  @include dflex(center, center);
+  line-height: 1.1;
+  -webkit-transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease;
+  $colors: (
+    'success' $mountain-meadow clamp(1.2rem, 2vw, 1.7rem) 65%,
+    'primary' $yale-blue clamp(1rem, 2vw, 1.2rem) 35%
+  );
+  @each $class, $color, $font-size, $flex-basis in $colors {
+    &--#{$class} {
+      background-color: $color;
+      font-size: $font-size;
+      -ms-flex-preferred-size: $flex-basis;
+      flex-basis: calc($flex-basis - 1rem);
+      &:hover {
+        background-color: lighten($color, 7%);
+      }
+    }
+  }
+  &--disabled {
+    pointer-events: none;
+    opacity: 0.3;
+  }
+  &--back {
+    margin-left: auto;
+    -webkit-box-flex: inherit;
+    -ms-flex-positive: inherit;
+    flex-grow: inherit;
+    -ms-flex-preferred-size: inherit;
+    flex-basis: inherit;
+  }
+}

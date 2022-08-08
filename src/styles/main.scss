@@ -1,0 +1,46 @@
+@use './utilities.scss' as *;
+@forward './sweet-alert.scss';
+
+:root {
+  --main-padding: 2rem 1.5rem;
+  @include breakpoint(480px) {
+    --main-padding: 3.5rem;
+  }
+}
+
+* {
+  margin: 0;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  line-height: 1;
+  text-transform: uppercase;
+  color: $white;
+  font-family: $montserrat;
+  font-weight: 600;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+html {
+  font-size: 62.5%; //10px -> 1rem
+}
+
+body {
+  font-size: 1.6rem;
+  background: -webkit-gradient(linear, left top, left bottom, from($venice-blue), to($regal-blue)) no-repeat
+    center / cover;
+  background: linear-gradient(to bottom, $venice-blue, $regal-blue) no-repeat
+    center / cover;
+}
+
+#root {
+  @include dflex(center, center);
+  min-height: 100vh;
+  -webkit-perspective: 100rem;
+  perspective: 100rem;
+}

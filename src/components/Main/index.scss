@@ -1,0 +1,92 @@
+@use '../../styles/utilities.scss' as *;
+
+.main {
+  --btn-container-flex-wrap: wrap;
+  --btn-container-gap: 0;
+  @include breakpoint(320px) {
+    --btn-container-flex-wrap: nowrap;
+    --btn-container-gap: 0.8rem;
+  }
+  color: $white;
+  width: 90%;
+  max-width: 47rem;
+  text-align: center;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  position: relative;
+  -webkit-transition: 1s ease;
+  transition: 1s ease;
+  &--rotate {
+    -webkit-transform: translateZ(-2rem) rotateY(-180deg);
+    transform: translateZ(-2rem) rotateY(-180deg);
+  }
+  > div:not(.main__front) {
+    position: absolute;
+    top: 0;
+    height: 100%;
+  }
+  &__front,
+  &__back {
+    background-color: $ateneo-blue;
+    padding: var(--main-padding);
+  }
+  &__front {
+    -webkit-transform: rotateY(0deg) translateZ(0);
+    transform: rotateY(0deg) translateZ(0);
+  }
+
+  &__back {
+    -webkit-transform: rotateX(180deg) translateZ(2rem) rotate(180deg);
+    transform: rotateX(180deg) translateZ(2rem) rotate(180deg);
+    width: 100%;
+    @include dflex(space-between, null);
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+
+  &__right {
+    width: 2rem;
+    -webkit-transform: rotateY(90deg) translateZ(2rem);
+    transform: rotateY(90deg) translateZ(2rem);
+    right: 0;
+    -webkit-transform-origin: left;
+    transform-origin: left;
+    background-color: $black-pearl;
+  }
+  &__headline {
+    font-size: clamp(1.8rem, 3vw, 2.4rem);
+    text-transform: initial;
+  }
+  &__body {
+    padding: 1.7rem 0 3.5rem;
+  }
+  &__footer {
+    &-headline {
+      background-color: $midnight-blue;
+      @include dflex(space-around, center);
+      padding: 1rem 0.5rem;
+      -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+      &__title {
+        font-size: clamp(1.1rem, 3vw, 1.4rem);
+        font-weight: 600;
+        margin: 0.5rem 0.5rem 0.5rem 0;
+      }
+      &__price {
+        font-size: clamp(2.2rem, 3vw, 3rem);
+        white-space: nowrap;
+      }
+    }
+    &-btn-container {
+      @include dflex(center, center);
+      -ms-flex-wrap: var(--btn-container-flex-wrap);
+      flex-wrap: var(--btn-container-flex-wrap);
+      gap: var(--btn-container-gap);
+      text-transform: inherit;
+    }
+  }
+}

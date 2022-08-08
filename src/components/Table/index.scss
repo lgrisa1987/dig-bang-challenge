@@ -1,0 +1,18 @@
+@use '../../styles/utilities.scss' as *;
+
+.table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: clamp(1.3rem, 2vw, 1.6rem);
+  &__head {
+    background-color: $yale-blue;
+  }
+  td {
+    font-weight: 300;
+  }
+  td,
+  th {
+    padding: 0.8rem;
+    text-transform: initial;
+  }
+}

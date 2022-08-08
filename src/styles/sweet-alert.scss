@@ -1,0 +1,24 @@
+@use './utilities.scss' as *;
+html {
+  .swal2 {
+    &-popup {
+      font-size: 1.4rem;
+    }
+    &-container.swal2-backdrop-show {
+      -webkit-backdrop-filter: blur(0.1rem);
+      backdrop-filter: blur(0.1rem);
+    }
+    &-html-container {
+      text-transform: initial;
+    }
+    &-styled.swal2-confirm {
+      background-color: $yale-blue;
+      font-weight: inherit;
+      border-radius: 0;
+      &:focus {
+        -webkit-box-shadow: none;
+        box-shadow: none;
+      }
+    }
+  }
+}
